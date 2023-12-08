@@ -1,8 +1,8 @@
 <%@page import="javax.naming.InitialContext"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="cl.inacap.clienteejb.business.ServicioLocal"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 	
 <%! ServicioLocal servicioLocal; %>
 
@@ -16,7 +16,7 @@ servicioLocal = (ServicioLocal)ctx.lookup("java:global/ClienteEAR/ClienteEJB/Ser
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Inicio</title>
 </head>
 <body>
@@ -30,7 +30,7 @@ servicioLocal = (ServicioLocal)ctx.lookup("java:global/ClienteEAR/ClienteEJB/Ser
 	<hr/>
 
 	<p>Rut a eliminar: ${param.rut}</p>
-	<p>¿Esta seguro que desea eliminar?</p>
+	<p>Â¿Esta seguro que desea eliminar?</p>
 	<a href="ClienteControlador?rut=${param.rut}&boton=2">Si</a>
 	<a href="index.jsp">No</a> ${mensaje}
 </body>
