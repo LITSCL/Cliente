@@ -56,7 +56,6 @@ public class Servicio implements ServicioLocal {
 
 	@Override
 	public String updateCliente(Cliente cl) {
-
 		return "Cliente modificado";
 	}
 }
