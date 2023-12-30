@@ -36,37 +36,37 @@ public class ClienteControlador extends HttpServlet {
 		String boton = request.getParameter("boton");
 		
 		switch (boton) {
-		case "1":
-			String nombre = request.getParameter("nombre");
-			String apellidoPaterno = request.getParameter("apellidoPaterno");
-			String apellidoMaterno = request.getParameter("apellidoMaterno");
-			Cliente cl = new Cliente(rut, nombre, apellidoPaterno, apellidoMaterno);
-			servicioLocal.saveCliente(cl);
-			response.sendRedirect("mostrar.jsp");
-			break;
-		case "2":
-			String mensaje = servicioLocal.deleteCliente(rut);
-			request.setAttribute("mensaje", mensaje);
-			request.getRequestDispatcher("eliminar.jsp").forward(request, response);
-			break;
-		case "3":
-			 Cliente cli = servicioLocal.findCliente(rut);
-			 request.setAttribute("cliente", cli);
-			 request.getRequestDispatcher("modificar.jsp").forward(request, response);
-			 servicioLocal.deleteCliente(rut);
-			break;
-		case "4":
-			String nombreModificar = request.getParameter("nombre");
-			String apellidoPaternoModificar = request.getParameter("apellidoPaterno");
-			String apellidoMaternoModificar = request.getParameter("apellidoMaterno");
-			Cliente cliente = new Cliente(rut,nombreModificar, apellidoPaternoModificar, apellidoMaternoModificar);
-			servicioLocal.saveCliente(cliente);
-			mensaje = "Cliente modificado";
-			request.setAttribute("mensaje", mensaje);
-			request.getRequestDispatcher("modificar.jsp").forward(request, response);
-			break;
-		default:
-			
+			case "1":
+				String nombre = request.getParameter("nombre");
+				String apellidoPaterno = request.getParameter("apellidoPaterno");
+				String apellidoMaterno = request.getParameter("apellidoMaterno");
+				Cliente cl = new Cliente(rut, nombre, apellidoPaterno, apellidoMaterno);
+				servicioLocal.saveCliente(cl);
+				response.sendRedirect("mostrar.jsp");
+				break;
+			case "2":
+				String mensaje = servicioLocal.deleteCliente(rut);
+				request.setAttribute("mensaje", mensaje);
+				request.getRequestDispatcher("eliminar.jsp").forward(request, response);
+				break;
+			case "3":
+				Cliente cli = servicioLocal.findCliente(rut);
+				request.setAttribute("cliente", cli);
+				request.getRequestDispatcher("modificar.jsp").forward(request, response);
+				servicioLocal.deleteCliente(rut);
+				break;
+			case "4":
+				String nombreModificar = request.getParameter("nombre");
+				String apellidoPaternoModificar = request.getParameter("apellidoPaterno");
+				String apellidoMaternoModificar = request.getParameter("apellidoMaterno");
+				Cliente cliente = new Cliente(rut,nombreModificar, apellidoPaternoModificar, apellidoMaternoModificar);
+				servicioLocal.saveCliente(cliente);
+				mensaje = "Cliente modificado";
+				request.setAttribute("mensaje", mensaje);
+				request.getRequestDispatcher("modificar.jsp").forward(request, response);
+				break;
+			default:
+				//
 		}
 	}
 
